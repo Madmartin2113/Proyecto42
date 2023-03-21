@@ -70,7 +70,7 @@ function draw() {
   kangaroo.x=camera.position.x-270;
    
   if (gameState===PLAY){
-
+      
     jungle.velocityX=-3
 
     if(jungle.x<100)
@@ -200,7 +200,13 @@ function reset(){
   kangaroo.visible = true;
   //change animation of the kangaroo
   //destroy the shrubs and obstacle group
-  kangaroo.changeAnimation("collided",kangaroo_collided);
+  //kangaroo.changeAnimation("collided",kangaroo_collided);
+  // Una vez reiniciado el Juego la animación a mostrar será el Kanguro corriendo así :
+  kangaroo.changeAnimation("running",kangaroo_running);
+  
+  //Destruir los grupos para que desaparezcan los obstacúlo que generaron la colisión y el juego pueda continuar 
+  obstaclesGroup.destroyEach();
+  shrubsGroup.destroyEach();
   
   score = 0;
 }
